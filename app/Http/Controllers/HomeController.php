@@ -53,7 +53,6 @@ class HomeController extends Controller
                 foreach ($datas as $key => $value){
                       $priceEx = '' . $value->price;
                 }
-                // dd($priceEx);
                 $priceIntereset  =  $priceEx * (10/100);
                 $priceSum = $priceIntereset + $priceEx;
                 $interest  = array('email'=>Auth::user()->email  , 'price'=>$priceSum, 'time_date'=>$dt->toDateString() , 'interest'=>$priceIntereset);
@@ -121,6 +120,7 @@ class HomeController extends Controller
                     $msg->to($SendEmails,'cone vỹ')->subject('Mật khẩu ');
                  });
             }
-            return redirect('home');
+        
+        return redirect('home');
     }   
 }
